@@ -43,18 +43,18 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://graph.org/file/58d2895ee5c8dd74
 SHORTLINK_URL = os.environ.get("SHORTLINK_URL", "linkshortify.com")
 SHORTLINK_API = os.environ.get("SHORTLINK_API", "b28d734c810251e0717dc303e2592f45a6f34111")
 TUT_VID = os.environ.get("TUT_VID","https://t.me/hwdownload/3")
-SHORT_MSG = "<b>⌯ H​​🇪​​🇷​​🇪​ ​🇮​🇸​ ​Y​​🇴​​🇺​​🇷​ ​D​​🇴​​🇼​​🇳​​🇱​​🇴​​🇦​​🇩​ ​​L🇮​​🇳​​🇰​, ​M​​🇺​​🇸​​🇹​ ​W​​🇦​​🇹​​🇨​​🇭​ ​T​​🇺​​🇹​​🇴​​🇷​​🇮​​🇦​​🇱​ ​B​​🇪​​🇫​​🇴​​🇷​​🇪​ ​C​​🇱​​🇮​​🇨​​🇰​​🇮​​🇳​​🇬​ ​🇴​​🇳​ D​​🇴​​🇼​​🇳​​🇱​​🇴​​🇦​​🇩​...</b>"
+SHORT_MSG = "<b>⌯ ʜᴇʀᴇ ɪꜱ ʏᴏᴜʀ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ, ᴍᴜꜱᴛ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ʙᴇꜰᴏʀᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ᴅᴏᴡɴʟᴏᴀᴅ...</b>"
 
 SHORTENER_PIC = os.environ.get("SHORTENER_PIC", "https://graph.org/file/84963be6aa5a73670c375-655043a99b62eff4d6.jpg")
 #--------------------------------------------
 
 #--------------------------------------------
 HELP_TXT = "<b><blockquote>ᴛʜɪs ɪs ᴀɴ ғɪʟᴇ ᴛᴏ ʟɪɴᴋ ʙᴏᴛ ᴡᴏʀᴋ ғᴏʀ @Animes_Eternals\n\n❏ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs\n├/start : sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ\n├/about : ᴏᴜʀ Iɴғᴏʀᴍᴀᴛɪᴏɴ\n└/help : ʜᴇʟᴘ ʀᴇʟᴀᴛᴇᴅ ʙᴏᴛ\n\n sɪᴍᴘʟʏ ᴄʟɪᴄᴋ ᴏɴ ʟɪɴᴋ ᴀɴᴅ sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ᴊᴏɪɴ ʙᴏᴛʜ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ᴛʜᴀᴛs ɪᴛ.....!\n\n ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ <a href=https://t.me/cursedfury>ᴅᴇʙᴏ</a></blockquote></b>"
-ABOUT_TXT = "<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href=https://t.me/cursedfury>ᴅᴇʙᴏ</a>\n◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ : <a href=https://t.me/THE_ETERNALS_NETWORK>\n◈ ᴇᴛᴇʀɴᴀʟꜱ ɴᴇᴛᴡᴏʀᴋ</a>\n◈ ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ : <a href=https://t.me/animes_eternals>ᴀɴɪᴍᴇ ᴇᴛᴇʀɴᴀʟꜱ</a>\n◈ sᴇʀɪᴇs ᴄʜᴀɴɴᴇʟ : <a href=https://t.me/eternals-hdmovie>ᴡᴇʙsᴇʀɪᴇs ᴇᴛᴇʀɴᴀʟꜱ</a>\n◈ ᴀᴅᴜʟᴛ ᴇᴛᴇʀɴᴀʟꜱ : <a href=https://t.me/adult_eternals>ʜᴇɴᴛᴀɪ</a>\n◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href=https://t.me/cursedfury>ᴅᴇʙᴏ</a></blockquote></b>"
+ABOUT_TXT = "<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href=https://t.me/cursedfury>ᴅᴇʙᴏ</a>\n◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ : <a href=https://t.me/THE_ETERNALS_NETWORK>ᴇᴛᴇʀɴᴀʟꜱ ɴᴇᴛᴡᴏʀᴋ</a>\n◈ ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ : <a href=https://t.me/animes_eternals>ᴀɴɪᴍᴇ ᴇᴛᴇʀɴᴀʟꜱ</a>\n◈ sᴇʀɪᴇs ᴄʜᴀɴɴᴇʟ : <a href=https://t.me/eternals_hdmovie>ᴡᴇʙsᴇʀɪᴇs ᴇᴛᴇʀɴᴀʟꜱ</a>\n◈ ᴀᴅᴜʟᴛ ᴇᴛᴇʀɴᴀʟꜱ : <a href=https://t.me/adult_eternals>ʜᴇɴᴛᴀɪ</a>\n◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href=https://t.me/cursedfury>ᴅᴇʙᴏ</a></blockquote></b>"
 #--------------------------------------------
 #--------------------------------------------
 START_MSG = os.environ.get("START_MESSAGE", "<b>ʜᴇʟʟᴏ {first}\n\n<blockquote> ɪ ᴀᴍ ғɪʟᴇ sᴛᴏʀᴇ ʙᴏᴛ, ɪ ᴄᴀɴ sᴛᴏʀᴇ ᴘʀɪᴠᴀᴛᴇ ғɪʟᴇs ɪɴ sᴘᴇᴄɪғɪᴇᴅ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴏᴛʜᴇʀ ᴜsᴇʀs ᴄᴀɴ ᴀᴄᴄᴇss ɪᴛ ғʀᴏᴍ sᴘᴇᴄɪᴀʟ ʟɪɴᴋ.</blockquote></b>")
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "ʜᴇʟʟᴏ {first}\n\n<b>🫧ᴘʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ʀᴇʟᴏᴀᴅ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛᴇᴅ ꜰɪʟᴇ...!</b>")
+FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "ʜᴇʟʟᴏ {first}\n\n<blockquote> 🫧ᴘʟᴇᴀꜱᴇ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ʀᴇʟᴏᴀᴅ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛᴇᴅ ꜰɪʟᴇ...!</b>")
 
 CMD_TXT = """<blockquote><b>» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs:</b></blockquote>
 
@@ -91,8 +91,8 @@ USER_REPLY_TEXT = "ʙᴀᴋᴋᴀ ! ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴍʏ ꜱᴇɴᴘ
 #==========================(BUY PREMIUM)====================#
 
 OWNER_TAG = os.environ.get("OWNER_TAG", "cursedfury")
-UPI_ID = os.environ.get("UPI_ID", "")
-QR_PIC = os.environ.get("QR_PIC", "")
+UPI_ID = os.environ.get("UPI_ID", "7086593551@ybl")
+QR_PIC = os.environ.get("QR_PIC", "https://graph.org/file/4bf8fa709ee30d3f5f54b-501d86b0cb393f1eaa.jpg")
 SCREENSHOT_URL = os.environ.get("SCREENSHOT_URL", f"t.me/cursedfury")
 #--------------------------------------------
 #Time and its price
