@@ -18,7 +18,7 @@ from logging.handlers import RotatingFileHandler
 #rohit_1888 on Tg
 #--------------------------------------------
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7195817074:AAGmf7k4cecCwXiUHTUrRXiiThdRpcE-3jI")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7981645596:AAGkEnd5ahtx_M6RAbChqSPSw8XUgkSnUV4")
 APP_ID = int(os.environ.get("APP_ID", "29285243")) #Your API ID from my.telegram.org
 API_HASH = os.environ.get("API_HASH", "9324e1e962756ac511288fbf4696ddfd") #Your API Hash from my.telegram.org
 #--------------------------------------------
@@ -41,7 +41,7 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://graph.org/file/2c2df6ab4e386378
 
 #--------------------------------------------
 SHORTLINK_URL = os.environ.get("SHORTLINK_URL", "linkshortify.com")
-SHORTLINK_API = os.environ.get("SHORTLINK_API", "")
+SHORTLINK_API = os.environ.get("SHORTLINK_API", "b28d734c810251e0717dc303e2592f45a6f34111")
 TUT_VID = os.environ.get("TUT_VID","https://t.me/hwdownload/3")
 SHORT_MSG = "<b>⌯ Here is Your Download Link, Must Watch Tutorial Before Clicking On Download...</b>"
 
