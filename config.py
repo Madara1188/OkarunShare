@@ -29,8 +29,8 @@ OWNER_ID = int(os.environ.get("OWNER_ID", "5734659617")) # Owner id
 #--------------------------------------------
 PORT = os.environ.get("PORT", "8001")
 #--------------------------------------------
-DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://Yuuichi:Yuuichi@cluster0.8n5un.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DB_NAME = os.environ.get("DATABASE_NAME", "Yuuichi")
+DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://Furina:Furina@cluster0.nqumuxn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_NAME = os.environ.get("DATABASE_NAME", "Furina")
 #--------------------------------------------
 FSUB_LINK_EXPIRY = int(os.getenv("FSUB_LINK_EXPIRY", "10"))  # 0 means no expiry
 BAN_SUPPORT = os.environ.get("BAN_SUPPORT", "https://t.me/Team_Dst")
@@ -42,7 +42,7 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://graph.org/file/58d2895ee5c8dd74
 #--------------------------------------------
 SHORTLINK_URL = os.environ.get("SHORTLINK_URL", "linkshortify.com")
 SHORTLINK_API = os.environ.get("SHORTLINK_API", "b28d734c810251e0717dc303e2592f45a6f34111")
-TUT_VID = os.environ.get("TUT_VID","https://t.me/hwdownload/3")
+TUT_VID = os.environ.get("TUT_VID","https://t.me/SolveUrl/8")
 SHORT_MSG = "<b>⌯ ʜᴇʀᴇ ɪꜱ ʏᴏᴜʀ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ, ᴍᴜꜱᴛ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ʙᴇꜰᴏʀᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ᴅᴏᴡɴʟᴏᴀᴅ...</b>"
 
 SHORTENER_PIC = os.environ.get("SHORTENER_PIC", "https://graph.org/file/1a220b2bc3d4d079de377-0a0f14d220811820a3.jpg")
