@@ -282,7 +282,7 @@ async def not_joined(client: Client, message: Message):
                     buttons= ([
         [
             InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=link),
-            InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=link)
+            InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=link2)
         ]
     ])
                     count += 1
