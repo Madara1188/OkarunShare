@@ -282,10 +282,10 @@ async def not_joined(client: Client, message: Message):
                     buttons= ([
         [
             InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=link),
-            InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=link2)
+            InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=link)
         ]
     ])
-                    count += 1
+                    count += 2
                     await temp.edit(f"<b>{'! ' * count}</b>")
 
                 except Exception as e:
