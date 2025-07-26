@@ -301,12 +301,12 @@ async def not_joined(client: Client, message: Message):
                                 creates_join_request=True,
                                 expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
                             )       
-                              buttons = [
+                              buttons = ([
         [
             InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1),
             InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)
         ]
-                              ]
+                              ])
                             count += 1
                             await temp.edit(f"<b>{'! ' * count}</b>")
                     # Now `buttons` is a list of lists, where each inner list represents a row.
