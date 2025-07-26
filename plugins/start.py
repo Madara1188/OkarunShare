@@ -282,9 +282,6 @@ async def not_joined(client: Client, message: Message):
                             )
                             invite_link1 = invite1.invite_link # This is invite 1
                             
-                            buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1)])
-                            count += 1
-                            await temp.edit(f"<b>{'! ' * count}</b>")
                     # Second button
                     #This is the second invite to prevent the invite links being the same.
                     if mode == "on" and not data.username:
@@ -304,8 +301,10 @@ async def not_joined(client: Client, message: Message):
                                 creates_join_request=True,
                                 expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
                             )       
-                            invite_link2 = invite2.invite_link # this is invite 2
-                            buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)])
+                            (buttons=[
+                                [InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1)],  # Row 1 with one button
+                                [InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)]   # Row 2 with one button
+])    
                             count += 1
                             await temp.edit(f"<b>{'! ' * count}</b>")
                     # Now `buttons` is a list of lists, where each inner list represents a row.
