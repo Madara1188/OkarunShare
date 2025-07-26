@@ -311,8 +311,8 @@ async def not_joined(client: Client, message: Message):
                     # Now `buttons` is a list of lists, where each inner list represents a row.
                     # Each row contains one InlineKeyboardButton.
                     reply_markup = types.ReplyInlineMarkup(buttons=buttons)
-
-except Exception as e:
+                
+                except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
                     return await temp.edit(
                         f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @Cursedfury</i></b>\n"
