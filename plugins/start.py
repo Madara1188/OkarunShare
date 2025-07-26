@@ -263,54 +263,53 @@ async def not_joined(client: Client, message: Message):
 
                     # Generate proper invite link based on the mode
                     # First button
-if mode == "on" and not data.username:
-    invite1 = await client.create_chat_invite_link(
-        chat_id=chat_id,
-        creates_join_request=True,
-        expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+                    if mode == "on" and not data.username:
+                        invite1 = await client.create_chat_invite_link(
+                            chat_id=chat_id,
+                            creates_join_request=True,
+                            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
     )
-    invite_link1 = invite1.invite_link
-else:
-    if data.username:
-        invite_link1 = f"https://t.me/{data.username}"  # or whatever username logic you have
-    else:
-        # This is where the key change is: Create a *different* invite link
-        invite1 = await client.create_chat_invite_link(
-            chat_id=chat_id,
-            creates_join_request=True,
-            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-        )
-        invite_link1 = invite1.invite_link # This is invite 1
-
-                    buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1)])
-                    count += 1
-                    await temp.edit(f"<b>{'! ' * count}</b>")
-# Second button
-#This is the second invite to prevent the invite links being the same.
-if mode == "on" and not data.username:
-    invite2 = await client.create_chat_invite_link(
-        chat_id=chat_id,
-        creates_join_request=True,
-        expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-    )
-    invite_link2 = invite2.invite_link
-else:
-    if data.username:
-        invite_link2 = f"https://t.me/{data.username}"  # or whatever username logic you have
-    else:
-        # This is where the key change is: Create a *different* invite link
-        invite2 = await client.create_chat_invite_link(
-            chat_id=chat_id,
-            creates_join_request=True,
-            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-        )       
-        invite_link2 = invite2.invite_link # this is invite 2
-       
-                    buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)])
-                    count += 1
-                    await temp.edit(f"<b>{'! ' * count}</b>")
-        # Now `buttons` is a list of lists, where each inner list represents a row.
-# Each row contains one InlineKeyboardButton.
+                        invite_link1 = invite1.invite_link
+                    else:
+                        if data.username:
+                            invite_link1 = f"https://t.me/{data.username}"  # or whatever username logic you have
+                        else:
+                            # This is where the key change is: Create a *different* invite link
+                            invite1 = await client.create_chat_invite_link(
+                                chat_id=chat_id,
+                                creates_join_request=True,
+                                expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+                            )
+                            invite_link1 = invite1.invite_link # This is invite 1
+                            
+                            buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1)])
+                            count += 1
+                            await temp.edit(f"<b>{'! ' * count}</b>")
+                    # Second button
+                    #This is the second invite to prevent the invite links being the same.
+                    if mode == "on" and not data.username:
+                        invite2 = await client.create_chat_invite_link(
+                            chat_id=chat_id,
+                            creates_join_request=True,
+                            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+                        )
+                        invite_link2 = invite2.invite_link
+                    else:
+                        if data.username:
+                            invite_link2 = f"https://t.me/{data.username}"  # or whatever username logic you have
+                        else:
+                            # This is where the key change is: Create a *different* invite link
+                            invite2 = await client.create_chat_invite_link(
+                                chat_id=chat_id,
+                                creates_join_request=True,
+                                expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+                            )       
+                            invite_link2 = invite2.invite_link # this is invite 2
+                            buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)])
+                            count += 1
+                            await temp.edit(f"<b>{'! ' * count}</b>")
+                    # Now `buttons` is a list of lists, where each inner list represents a row.
+                    # Each row contains one InlineKeyboardButton.
 reply_markup = types.ReplyInlineMarkup(buttons=buttons)
                
 except Exception as e:
