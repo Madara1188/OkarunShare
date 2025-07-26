@@ -329,7 +329,7 @@ async def generate_invite_links(client: Client, chat_id: int, mode: str, data) -
         reply_markup=InlineKeyboardMarkup(buttons),
     )
 
-    except Exception as e:
+except Exception as e:
         print(f"Final Error: {e}")
         await temp.edit(
             f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @Cursedfury</i></b>\n"
