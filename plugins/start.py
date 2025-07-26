@@ -244,10 +244,9 @@ async def not_joined(client: Client, message: Message):
     count = 0
 
     try:
-        all_channels = await db.show_channels()  # Should return list of (chat_id, mode) tuples
-        for total, chat_id in enumerate(all_channels, start=1):
-            mode = await db.get_channel_mode(chat_id)  # fetch mode 
+        all_channels = await db.show_channels()  # Returns list of (chat_id, mode) tuples
 
+        for total, (chat_id, mode) in enumerate(all_channels, start=1):
             await message.reply_chat_action(ChatAction.TYPING)
 
             if not await is_sub(client, user_id, chat_id):
@@ -261,86 +260,75 @@ async def not_joined(client: Client, message: Message):
 
                     name = data.title
 
-                    # Generate proper invite link based on the mode
-                    # First button
-                    if mode == "on" and not data.username:
-                        invite1 = await client.create_chat_invite_link(
-                            chat_id=chat_id,
-                            creates_join_request=True,
-                            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-    )
-                        invite_link1 = invite1.invite_link
-                    else:
-                        if data.username:
-                            invite_link1 = f"https://t.me/{data.username}"  # or whatever username logic you have
-                        else:
-                            # This is where the key change is: Create a *different* invite link
-                            invite1 = await client.create_chat_invite_link(
-                                chat_id=chat_id,
-                                creates_join_request=True,
-                                expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-                            )
-                            invite_link1 = invite1.invite_link # This is invite 1
-                            
-                    # Second button
-                    #This is the second invite to prevent the invite links being the same.
-                    if mode == "on" and not data.username:
-                        invite2 = await client.create_chat_invite_link(
-                            chat_id=chat_id,
-                            creates_join_request=True,
-                            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-                        )
-                        invite_link2 = invite2.invite_link
-                    else:
-                        if data.username:
-                            invite_link2 = f"https://t.me/{data.username}"  # or whatever username logic you have
-                        else:
-                            # This is where the key change is: Create a *different* invite link
-                            invite2 = await client.create_chat_invite_link(
-                                chat_id=chat_id,
-                                creates_join_request=True,
-                                expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-                            )       
-                              buttons = ([
-        [
-            InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1),
-            InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)
-        ]
-                              ])
-                            count += 1
-                            await temp.edit(f"<b>{'! ' * count}</b>")
-                    # Now `buttons` is a list of lists, where each inner list represents a row.
-                    # Each row contains one InlineKeyboardButton.
-                
+                    # Generate invite links based on the channel mode
+                    invite_link1, invite_link2 = await generate_invite_links(client, chat_id, mode, data)
+
+                    # Create buttons for the invite links
+                    buttons.append([
+                        InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1),
+                        InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)
+                    ])
+
+                    count += 1
+                    await temp.edit(f"<b>{'! ' * count}</b>")
+
                 except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
+
+    except Exception as e:
+        print(f"Error while checking subscriptions: {e}")
+
+async def generate_invite_links(client: Client, chat_id: int, mode: str, data) -> tuple:
+    """Generates two distinct invite links for the channel."""
+    if mode == "on" and not data.username:
+        invite1 = await client.create_chat_invite_link(
+            chat_id=chat_id,
+            creates_join_request=True,
+            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+        )
+        invite_link1 = invite1.invite_link
+
+        # Create a second invite link
+        invite2 = await client.create_chat_invite_link(
+            chat_id=chat_id,
+            creates_join_request=True,
+            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+        )
+        invite_link2 = invite2.invite_link
+    else:
+        # If the channel has a username, use the username for both links
+        invite_link1 = invite_link2 = f"https://t.me/{data.username}"
+
+    return invite_link1, invite_link2
+
                     return await temp.edit(
                         f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @Cursedfury</i></b>\n"
                         f"<blockquote expandable><b>Rᴇᴀsᴏɴ:</b> {e}</blockquote>"
                     )
 
         # Retry Button
-        try:
-            buttons.append([
-                InlineKeyboardButton(
-                    text='⚡️ᴛʀʏ ᴀɢᴀɪɴ⚡️',
-                    url=f"https://t.me/{client.username}?start={message.command[1]}"
-                )
-            ])
-        except IndexError:
-            pass
+    buttons = []
+    try:
+        buttons.append([
+            InlineKeyboardButton(
+                text='⚡️ᴛʀʏ ᴀɢᴀɪɴ⚡️',
+                url=f"https://t.me/{client.username}?start={message.command[1]}"
+            )
+        ])
+    except IndexError:
+        pass
 
-        await message.reply_photo(
-            photo=FORCE_PIC,
-            caption=FORCE_MSG.format(
-                first=message.from_user.first_name,
-                last=message.from_user.last_name,
-                username=None if not message.from_user.username else '@' + message.from_user.username,
-                mention=message.from_user.mention,
-                id=message.from_user.id
-            ),
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
+    await message.reply_photo(
+        photo=FORCE_PIC,
+        caption=FORCE_MSG.format(
+            first=message.from_user.first_name,
+            last=message.from_user.last_name,
+            username=f"@{message.from_user.username}" if message.from_user.username else None,
+            mention=message.from_user.mention,
+            id=message.from_user.id
+        ),
+        reply_markup=InlineKeyboardMarkup(buttons),
+    )
 
     except Exception as e:
         print(f"Final Error: {e}")
