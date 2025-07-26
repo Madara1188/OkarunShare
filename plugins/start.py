@@ -262,28 +262,63 @@ async def not_joined(client: Client, message: Message):
                     name = data.title
 
                     # Generate proper invite link based on the mode
-                    if mode == "on" and not data.username:
-                        invite = await client.create_chat_invite_link(
-                            chat_id=chat_id,
-                            creates_join_request=True,
-                            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
-                            )
-                        link = invite.invite_link
+                    # First button
+invite_link1 = None # set to None
+if mode == "on" and not data.username:
+    invite1 = await client.create_chat_invite_link(
+        chat_id=chat_id,
+        creates_join_request=True,
+        expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+    )
+    invite_link1 = invite1.invite_link
+else:
+    if data.username:
+        invite_link1 = f"https://t.me/{data.username}"  # or whatever username logic you have
+    else:
+        # This is where the key change is: Create a *different* invite link
+        invite1 = await client.create_chat_invite_link(
+            chat_id=chat_id,
+            creates_join_request=True,
+            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+        )
+        invite_link1 = invite1.invite_link # This is invite 1
 
-                    else:
-                        if data.username:
-                            link = f"https://t.me/{data.username}"
-                        else:
-                            invite = await client.create_chat_invite_link(
-                                chat_id=chat_id,
-                                expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None)
-                            link = invite.invite_link
-
-                    buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=link)])
+                    buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1)])
                     count += 1
                     await temp.edit(f"<b>{'! ' * count}</b>")
+# Second button
+invite_link2 = None # set to None
+#This is the second invite to prevent the invite links being the same.
+if mode == "on" and not data.username:
+    invite2 = await client.create_chat_invite_link(
+        chat_id=chat_id,
+        creates_join_request=True,
+        expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+    )
+    invite_link2 = invite2.invite_link
+else:
+    if data.username:
+        invite_link2 = f"https://t.me/{data.username}"  # or whatever username logic you have
+    else:
+        # This is where the key change is: Create a *different* invite link
+        invite2 = await client.create_chat_invite_link(
+            chat_id=chat_id,
+            creates_join_request=True,
+            expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
+        )       
+        invite_link2 = invite2.invite_link # this is invite 2
+       
+                    buttons.append([InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)])
+                    count += 1
+                    await temp.edit(f"<b>{'! ' * count}</b>")
+        # Now `buttons` is a list of lists, where each inner list represents a row.
+# Each row contains one InlineKeyboardButton.
+reply_markup = types.ReplyInlineMarkup(buttons=buttons)
 
-                except Exception as e:
+# Now you use `reply_markup` when sending the message
+await client.send_message(chat_id, "Message Text", reply_markup=reply_markup)
+               
+except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
                     return await temp.edit(
                         f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @Cursedfury</i></b>\n"
