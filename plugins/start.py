@@ -301,11 +301,10 @@ async def generate_invite_links(client: Client, chat_id: int, mode: str, data) -
 
     return invite_link1, invite_link2
 
-                    return await temp.edit(
+    return await temp.edit(
                         f"<b><i>! Eʀʀᴏʀ, Cᴏɴᴛᴀᴄᴛ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴛᴏ sᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇs @Cursedfury</i></b>\n"
                         f"<blockquote expandable><b>Rᴇᴀsᴏɴ:</b> {e}</blockquote>"
                     )
-
         # Retry Button
     buttons = []
     try:
