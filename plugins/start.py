@@ -263,7 +263,6 @@ async def not_joined(client: Client, message: Message):
 
                     # Generate proper invite link based on the mode
                     # First button
-invite_link1 = None # set to None
 if mode == "on" and not data.username:
     invite1 = await client.create_chat_invite_link(
         chat_id=chat_id,
@@ -287,7 +286,6 @@ else:
                     count += 1
                     await temp.edit(f"<b>{'! ' * count}</b>")
 # Second button
-invite_link2 = None # set to None
 #This is the second invite to prevent the invite links being the same.
 if mode == "on" and not data.username:
     invite2 = await client.create_chat_invite_link(
