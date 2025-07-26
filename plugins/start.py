@@ -310,7 +310,7 @@ async def not_joined(client: Client, message: Message):
                             await temp.edit(f"<b>{'! ' * count}</b>")
                     # Now `buttons` is a list of lists, where each inner list represents a row.
                     # Each row contains one InlineKeyboardButton.
-                    reply_markup = InlineKeyboardMarkup(buttons=buttons)
+                    reply_markup = InlineKeyboardMarkup(rows=buttons)
                 
                 except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
