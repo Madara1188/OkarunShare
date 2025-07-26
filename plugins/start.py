@@ -314,9 +314,6 @@ else:
         # Now `buttons` is a list of lists, where each inner list represents a row.
 # Each row contains one InlineKeyboardButton.
 reply_markup = types.ReplyInlineMarkup(buttons=buttons)
-
-# Now you use `reply_markup` when sending the message
-await client.send_message(chat_id, "Message Text", reply_markup=reply_markup)
                
 except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
