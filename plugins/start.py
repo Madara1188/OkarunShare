@@ -301,7 +301,7 @@ async def not_joined(client: Client, message: Message):
                                 creates_join_request=True,
                                 expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None
                             )       
-                            (buttons=[
+                            (buttons = [
                                 [InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link1)],  # Row 1 with one button
                                 [InlineKeyboardButton(text="⚡️ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ⚡️", url=invite_link2)]   # Row 2 with one button
 ])    
